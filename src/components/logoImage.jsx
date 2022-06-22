@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 const LOGO_IMAGE = "/images/triple2x.png";
 
@@ -12,20 +12,9 @@ const LogoImage = memo((props) => {
   );
 });
 
-const keyframe = keyframes`
-  from {
-    opacity: 0;
-    transform: translate3d(0, 100%, 0);
-  }
-  to {
-    opacity: 1;
-  }
-`;
-
 const Container = styled.section`
   display: flex;
   flex-direction: column;
-  animation: ${keyframe} 700ms 100ms;
 `;
 
 const LogoImg = styled.img`
@@ -34,6 +23,7 @@ const LogoImg = styled.img`
 `;
 
 const LogoTitle = styled.span`
+  font-size: 15px;
   text-align: center;
   color: rgba(58, 58, 58, 0.7);
 `;
