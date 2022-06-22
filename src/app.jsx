@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import React from "react";
+import styled, { keyframes } from "styled-components";
 import AwardsList from "./components/awardsList";
 import CountList from "./components/countList";
 import LogoImage from "./components/logoImage";
@@ -6,16 +7,30 @@ import LogoImage from "./components/logoImage";
 function App() {
   return (
     <AppStyle>
-      <Section1>
+      <LogoImageSection>
         <LogoImage />
-      </Section1>
-      <Section2>
-        <CountList />
-        <AwardsList />
-      </Section2>
+      </LogoImageSection>
+      <ListSection>
+        <CountListBox>
+          <CountList />
+        </CountListBox>
+        <AwardsListBox>
+          <AwardsList />
+        </AwardsListBox>
+      </ListSection>
     </AppStyle>
   );
 }
+
+const keyframe = keyframes`
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 20%, 0);
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 
 const AppStyle = styled.section`
   width: 100%;
@@ -25,11 +40,25 @@ const AppStyle = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-y: hidden;
 `;
-const Section1 = styled.section``;
-const Section2 = styled(Section1)`
+
+const LogoImageSection = styled.section`
+  animation: ${keyframe} 700ms 100ms ease;
+`;
+
+const ListSection = styled.section`
   display: flex;
   flex-direction: column;
+  margin-left: 220px;
+`;
+
+const CountListBox = styled.div`
+  animation: ${keyframe} 700ms 200ms ease;
+`;
+
+const AwardsListBox = styled.div`
+  animation: ${keyframe} 700ms 300ms ease;
 `;
 
 export default App;
