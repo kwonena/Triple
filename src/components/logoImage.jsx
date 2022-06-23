@@ -23,6 +23,7 @@ const LogoImg = styled.img`
 `;
 
 const LogoTitle = styled.span`
+  font-family: sans-serif;
   font-size: 15px;
   text-align: center;
   color: rgba(58, 58, 58, 0.7);

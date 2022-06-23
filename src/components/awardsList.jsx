@@ -34,7 +34,7 @@ const Container = styled.section`
 const AwardsItem = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 50px;
+  margin-right: 39px;
 `;
 
 const ItemImg = styled.img`
@@ -44,6 +44,9 @@ const ItemImg = styled.img`
 `;
 
 const ItemText = styled.span`
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 22px;
   color: rgba(58, 58, 58, 0.8);
   font-weight: bold;
 `;
