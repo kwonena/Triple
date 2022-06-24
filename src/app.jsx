@@ -22,6 +22,7 @@ function App() {
   );
 }
 
+// keyframes를 사용해 위로 떠오르는 애니메이션 구현
 const keyframe = keyframes`
   0% {
     opacity: 0;
@@ -44,6 +45,8 @@ const AppStyle = styled.section`
   overflow-y: hidden;
 `;
 
+// 애니메이션은 700ms동안 구현 되고
+// 각 컴포넌트는 100ms의 간격을 가짐
 const LogoImageSection = styled.section`
   animation: ${keyframe} 700ms 100ms ease;
 `;
