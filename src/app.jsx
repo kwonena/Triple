@@ -33,6 +33,7 @@ const keyframe = keyframes`
 `;
 
 const AppStyle = styled.section`
+  min-width: 1200px;
   width: 100%;
   height: 100vh;
   padding: 0;
