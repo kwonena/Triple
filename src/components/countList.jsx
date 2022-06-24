@@ -11,27 +11,32 @@ const CountList = (props) => {
   }, []);
 
   const loadNum = () => {
-    const maxNumArr = [350, 21, 650];
+    const maxNumArr = [350, 21, 650]; // 목표 숫자 배열
+    const timeSec = 2; // 애니메이션 증가 목표 시간 : 2초
 
     maxNumArr.forEach((max) => {
-      increaseNum(max);
+      increaseNum(max, timeSec);
     });
   };
 
-  const increaseNum = (max) => {
-    let now = max;
-    const time = (2 / max) * 1000;
+  // 숫자 증가 애니메이션 함수
+  const increaseNum = (max, timeSec) => {
+    let now = 0;
 
+    // 0.05초 간격으로 증가 함수 실행
     const handleNum = setInterval(() => {
-      const num = Math.ceil(max - now);
-      const step = now / 10;
-      console.log(num, max, now);
-      console.log(num === max);
-      num === max ? clearInterval(handleNum) : printCaseNum(max, num + 1);
-      now -= step;
-    }, time);
+      now += max / (20 * timeSec);
+      const num = Math.floor(now);
+      printCaseNum(max, num);
+
+      // num이 max보다 커지면 함수 취소
+      if (num >= max) {
+        clearInterval(handleNum);
+      }
+    }, 50);
   };
 
+  // max의 값을 case로 분류 후 state 변경
   const printCaseNum = (max, num) => {
     switch (max) {
       case 350:
@@ -70,6 +75,7 @@ const Container = styled.section`
 `;
 
 const ListText = styled.span`
+  font-family: sans-serif;
   font-size: 36px;
   letter-spacing: -1px;
   margin-bottom: 20px;
